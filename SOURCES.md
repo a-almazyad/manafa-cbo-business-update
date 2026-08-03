@@ -15,4 +15,10 @@ The presentation consolidates internal material current to 4 August 2026:
 - SME Bank API Integration scope
 - Embedded Lending Roadmap and Dhamen discussion notes
 
+Official public brand assets used in the deck:
+
+- Mudad: `https://mudad.com.sa/assets/favicons/icon.svg`
+- SME Bank: `https://smebank.gov.sa/images/logo.svg`
+- Social Development Bank: official website logo asset
+
 Partner timelines and commercial positions should be reconfirmed immediately before presenting.

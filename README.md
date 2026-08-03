@@ -2,7 +2,7 @@
 
 HTML presentation prepared for the CBO review on 4 August 2026.
 
-The deck follows Manafa's CTO weekly presentation system: 1440×810 slides, Alexandria type, flat black/white layouts, violet section accents, compact status colours, and sourced company/partner assets.
+The deck follows Manafa's CTO weekly presentation system: 1440×810 slides, Alexandria type, flat black/white layouts, section-divider slides, varied visual compositions, and sourced product/partner assets.
 
 ## Run locally
 
@@ -10,7 +10,7 @@ The deck follows Manafa's CTO weekly presentation system: 1440×810 slides, Alex
 python3 -m http.server 4185
 ```
 
-Open `http://127.0.0.1:4185`. Use arrow keys to move between slides, `O` for the overview, and `F` for fullscreen.
+Open `http://127.0.0.1:4185`. Use arrow keys to move between slides, `O` for the overview, and `F` for fullscreen. The Borrower Channel, Focused Platforms, Financing Products, Institutional Funding, and Embedded Partnerships slides include clickable sub-slide tabs.
 
 ## Editorial rules
 
