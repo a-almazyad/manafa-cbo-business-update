@@ -7,6 +7,7 @@ button{font:inherit}
 .slide{position:absolute;inset:0;display:none;overflow:hidden;background:var(--paper)}
 .slide.is-active{display:flex}
 .slide-header{display:grid;grid-template-columns:58px 1fr auto;gap:20px;align-items:start;padding:28px 44px 20px;border-bottom:1px solid var(--line)}
+.content>.slide-header{flex:0 0 auto}
 .slide-header>span{color:var(--violet);font-weight:800}
 .slide-header h2{margin:0;font-size:28px;letter-spacing:-.7px}
 .slide-header p{margin:6px 0 0;color:var(--muted);font-size:11px}
