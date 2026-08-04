@@ -10,7 +10,7 @@ The deck follows Manafa's CTO weekly presentation system: 1440×810 slides, Alex
 python3 -m http.server 4185
 ```
 
-Open `http://127.0.0.1:4185`. Use arrow keys to move between slides, `O` for the overview, and `F` for fullscreen. The Borrower Channel, Focused Platforms, Financing Products, Institutional Funding, and Embedded Partnerships slides include clickable sub-slide tabs.
+Open `http://127.0.0.1:4185`. Use arrow keys to move between slides, `O` for the overview, and `F` for fullscreen. The complete core story can be presented with slide navigation alone. Only the Embedded Partnerships portfolio retains optional drill-down tabs.
 
 ## Editorial rules
 

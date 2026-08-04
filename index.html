@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=20260804-2">
+  <link rel="stylesheet" href="styles.css?v=20260804-3">
 </head>
 <body>
   <main class="deck" aria-label="Manafa Digital Business Portfolio Update">
@@ -28,31 +28,26 @@
 
       <section class="slide content borrower-slide" data-title="Borrower Channel — Delivery and Roadmap" aria-hidden="true">
         <header class="slide-header"><span class="slide-number">01</span><div><h2>Borrower Channel — Delivery and Roadmap</h2><p>Borrower-facing web and mobile. Internal workflows sit under focused platforms.</p></div><span class="slide-context">R61 / R62</span></header>
-        <nav class="subnav" role="tablist" aria-label="Borrower Channel detail">
-          <button class="is-active" type="button" role="tab" aria-selected="true" data-tab="borrower-now">Current delivery</button>
-          <button type="button" role="tab" aria-selected="false" data-tab="borrower-next" tabindex="-1">Roadmap</button>
-        </nav>
-        <div class="subpanels">
-          <section class="subpanel is-active" data-panel="borrower-now" role="tabpanel">
-            <div class="journey-stage">
-              <div class="journey-line"></div>
-              <article class="journey-stop is-done"><span>01</span><h3>Activation · Phase 1</h3><p>Live foundation</p></article>
-              <article class="journey-stop is-current"><span>02</span><h3>Activation · Phase 2</h3><p>R61 spillover · design pending</p></article>
-              <article class="journey-stop"><span>03</span><h3>Task types</h3><p>14 tickets in testing</p></article>
-              <article class="journey-stop"><span>04</span><h3>User management</h3><p>Phase II planned</p></article>
-            </div>
-            <div class="evidence-band"><strong>Activation V2</strong><span>DF-3357 · BSQ-2988</span><span>22 To do</span><span>2 On hold</span><span>1 In testing</span></div>
-            <p class="takeaway">CapEx borrower web is planned for R61; mobile completion is planned for R62.</p>
-          </section>
-          <section class="subpanel" data-panel="borrower-next" role="tabpanel" hidden>
-            <div class="roadmap-rail">
-              <article><span>NOW</span><h3>Complete activation</h3><p>Mobile activation and Phase 1 edge cases.</p></article>
-              <article><span>NEXT</span><h3>Continue the financing journey</h3><p>Phase 2 journey revamp and CapEx experience.</p></article>
-              <article><span>THEN</span><h3>Improve control and visibility</h3><p>Secondary users, Nafath coverage and funder-decision tracking.</p></article>
-              <article><span>ONGOING</span><h3>Documents and communications</h3><p>Clearance letters, financing summaries, messages and short links.</p></article>
-            </div>
-          </section>
+        <div class="borrower-current">
+          <span class="section-label">CURRENT DELIVERY</span>
+          <div class="journey-stage">
+            <div class="journey-line"></div>
+            <article class="journey-stop is-done"><span>01</span><h3>Activation · Phase 1</h3><p>Live foundation</p></article>
+            <article class="journey-stop is-current"><span>02</span><h3>Activation · Phase 2</h3><p>R61 spillover · design pending</p></article>
+            <article class="journey-stop"><span>03</span><h3>Task types</h3><p>14 tickets in testing</p></article>
+            <article class="journey-stop"><span>04</span><h3>User management</h3><p>Phase II planned</p></article>
+          </div>
         </div>
+        <div class="borrower-roadmap">
+          <span class="section-label">WHAT COMES NEXT</span>
+          <div class="roadmap-rail">
+            <article><span>NOW</span><h3>Complete activation</h3><p>Mobile activation and Phase 1 edge cases.</p></article>
+            <article><span>NEXT</span><h3>Continue financing</h3><p>Phase 2 journey and CapEx experience.</p></article>
+            <article><span>THEN</span><h3>Improve visibility</h3><p>Secondary users, Nafath and funder decisions.</p></article>
+            <article><span>ONGOING</span><h3>Documents and communications</h3><p>Letters, summaries, messages and short links.</p></article>
+          </div>
+        </div>
+        <p class="borrower-takeaway"><strong>Activation V2 · DF-3357 / BSQ-2988</strong><span>CapEx web is planned for R61; mobile completion is planned for R62.</span></p>
         <footer class="slide-footer"><img src="assets/manafa-logo.svg" alt="Manafa"><span>Source · Jira R61 selected scope · Borrower Channel roadmap</span></footer>
       </section>
 
@@ -63,23 +58,15 @@
       </section>
 
       <section class="slide content platform-visual" data-title="From Admin Portal to Focused Platforms" aria-hidden="true">
-        <header class="slide-header"><span class="slide-number">02</span><div><h2>From Admin Portal to Focused Platforms</h2><p>One product shell, separate domain ownership and roadmaps.</p></div><span class="slide-context">Interactive view</span></header>
-        <nav class="subnav" role="tablist" aria-label="Focused platform evidence">
-          <button class="is-active" type="button" role="tab" aria-selected="true" data-tab="platform-map">Suite map</button>
-          <button type="button" role="tab" aria-selected="false" data-tab="platform-shell" tabindex="-1">Admin shell</button>
-          <button type="button" role="tab" aria-selected="false" data-tab="platform-system" tabindex="-1">Shared design system</button>
-        </nav>
-        <div class="subpanels platform-panels">
-          <section class="subpanel is-active" data-panel="platform-map" role="tabpanel">
-            <div class="platform-map"><img src="assets/design-system/platform-switcher.png" alt="Manafa platform switcher showing focused platform products"><div class="platform-map-copy"><strong>The suite is visible as products</strong><p>CRM, Client Lifecycle, Loan Origination, Loan Management, Funder Management, Buyer Management, SCF FinOps, Invoice Management and the Embedded Hub.</p><span>Admin Portal stays available while domains move.</span></div></div>
-          </section>
-          <section class="subpanel" data-panel="platform-shell" role="tabpanel" hidden>
-            <figure class="screen-stage"><img src="assets/design-system/admin-header.png" alt="Admin Portal platform shell"><figcaption><strong>Shared shell</strong><span>Platform switcher, navigation, identity and access remain consistent while each product owns its workflow.</span></figcaption></figure>
-          </section>
-          <section class="subpanel" data-panel="platform-system" role="tabpanel" hidden>
-            <figure class="screen-stage screen-stage--dark"><img src="assets/design-system/storybook.png" alt="Manafa Storybook component library"><figcaption><strong>Shared design system</strong><span>Reusable components reduce redesign and implementation differences across internal products.</span></figcaption></figure>
-          </section>
+        <header class="slide-header"><span class="slide-number">02</span><div><h2>From Admin Portal to Focused Platforms</h2><p>One product shell, separate domain ownership and roadmaps.</p></div><span class="slide-context">Product suite</span></header>
+        <div class="platform-evidence">
+          <figure class="platform-primary"><img src="assets/design-system/platform-switcher.png" alt="Manafa platform switcher showing focused platform products"><figcaption><strong>The suite is visible as products</strong><span>CRM, Client Lifecycle, Loan Origination, Loan Management, Funder Management, Buyer Management, SCF FinOps, Invoice Management and Embedded Hub.</span></figcaption></figure>
+          <div class="platform-supporting">
+            <figure><img src="assets/design-system/admin-header.png" alt="Admin Portal platform shell"><figcaption><strong>Shared shell</strong><span>Common navigation, identity and access.</span></figcaption></figure>
+            <figure class="is-dark"><img src="assets/design-system/storybook.png" alt="Manafa Storybook component library"><figcaption><strong>Shared design system</strong><span>Reusable components across products.</span></figcaption></figure>
+          </div>
         </div>
+        <p class="platform-note"><strong>Admin Portal remains available during the transition.</strong><span>Each focused platform owns its workflow and roadmap.</span></p>
         <footer class="slide-footer"><img src="assets/manafa-logo.svg" alt="Manafa"><span>Source · Manafa Product Suite Strategy v2.2 · Internal Platform JDN Design System</span></footer>
       </section>
 
@@ -103,32 +90,19 @@
       </section>
 
       <section class="slide content product-slide" data-title="Financing Products — CapEx and Lease Revenue" aria-hidden="true">
-        <header class="slide-header"><span class="slide-number">04</span><div><h2>Financing Products — CapEx and Lease Revenue</h2><p>Use the tabs to review the proposition, delivery path and open business decisions.</p></div><span class="slide-context">Two products</span></header>
-        <nav class="subnav subnav--products" role="tablist" aria-label="Financing products">
-          <button class="is-active" type="button" role="tab" aria-selected="true" data-tab="product-capex">CapEx Financing</button>
-          <button type="button" role="tab" aria-selected="false" data-tab="product-lease" tabindex="-1">Lease Revenue Financing</button>
-        </nav>
-        <div class="subpanels product-panels">
-          <section class="subpanel is-active" data-panel="product-capex" role="tabpanel">
-            <div class="product-intro"><div><span>CAPEX FINANCING</span><h3>Finance equipment and productive assets</h3><p>Maximum single loan up to SAR 3M.</p></div><strong>Web R61<br><small>Mobile R62</small></strong></div>
-            <div class="product-journey">
-              <article class="done"><i>1</i><h4>Eligibility</h4><p>Product enabled</p></article><b>→</b>
-              <article class="current"><i>2</i><h4>Request</h4><p>Supplier, IBAN and AML</p></article><b>→</b>
-              <article class="current"><i>3</i><h4>Contracts</h4><p>PO, facility and pledge</p></article><b>→</b>
-              <article class="current"><i>4</i><h4>Disbursement</h4><p>Fees, wallets and supplier</p></article><b>→</b>
-              <article><i>5</i><h4>Evidence</h4><p>Insurance and delivery</p></article>
-            </div>
-            <div class="product-decision"><strong>CBO alignment</strong><span>Confirm product sequence, remaining business rules, supplier process and third-party dependencies.</span></div>
+        <header class="slide-header"><span class="slide-number">04</span><div><h2>Two Financing Products, Two Different Delivery Positions</h2><p>CapEx is moving through delivery; Lease Revenue Financing is defining the operating model.</p></div><span class="slide-context">Portfolio view</span></header>
+        <div class="product-comparison">
+          <section class="product-column product-column--capex">
+            <div class="product-heading"><span>CAPEX FINANCING</span><strong>Web R61 · Mobile R62</strong></div>
+            <h3>Finance equipment and productive assets</h3><p>Maximum single loan up to SAR 3M.</p>
+            <div class="compact-journey"><article class="is-done"><b>1</b><span>Eligibility</span></article><article class="is-current"><b>2</b><span>Request</span></article><article class="is-current"><b>3</b><span>Contracts</span></article><article class="is-current"><b>4</b><span>Disbursement</span></article><article><b>5</b><span>Evidence</span></article></div>
+            <dl><div><dt>Current work</dt><dd>Supplier, IBAN, AML, contracts, fees and disbursement.</dd></div><div><dt>Decision needed</dt><dd>Remaining business rules, supplier process and third-party dependencies.</dd></div></dl>
           </section>
-          <section class="subpanel" data-panel="product-lease" role="tabpanel" hidden>
-            <div class="product-intro"><div><span>LEASE REVENUE FINANCING</span><h3>Finance against future lease revenue</h3><p>Eligible leases act as collateral instead of a traditional asset pledge.</p></div><strong>PRD drafted<br><small>Feedback pending</small></strong></div>
-            <div class="lease-visual">
-              <article><span>1</span><h4>Registered lease</h4><p>Eligible contract on Eijar</p></article><b>+</b>
-              <article><span>2</span><h4>Assignment of proceeds</h4><p>AOP operating model</p></article><b>→</b>
-              <article><span>3</span><h4>Credit and offer</h4><p>Eligibility, committee and pricing</p></article><b>→</b>
-              <article><span>4</span><h4>Loan and repayment</h4><p>Creation, withdrawal and handoffs</p></article>
-            </div>
-            <div class="product-decision"><strong>CBO alignment</strong><span>Confirm the proposition and target AOP / Eijar operating approach, then lock the first delivery scope.</span></div>
+          <section class="product-column product-column--lease">
+            <div class="product-heading"><span>LEASE REVENUE FINANCING</span><strong>PRD drafted</strong></div>
+            <h3>Finance against future lease revenue</h3><p>Eligible leases act as collateral instead of a traditional asset pledge.</p>
+            <div class="lease-flow"><span>Registered lease</span><i>+</i><span>Assignment of proceeds</span><i>→</i><span>Credit and offer</span><i>→</i><span>Loan and repayment</span></div>
+            <dl><div><dt>Current work</dt><dd>Defining eligibility, AOP / Eijar model, pricing and operational handoffs.</dd></div><div><dt>Decision needed</dt><dd>Confirm the proposition and operating approach, then lock first delivery scope.</dd></div></dl>
           </section>
         </div>
         <footer class="slide-footer"><img src="assets/manafa-logo.svg" alt="Manafa"><span>Source · CapEx Product Roadmap · Lease Revenue Financing PRD</span></footer>
@@ -153,29 +127,13 @@
       </section>
 
       <section class="slide content funding-slide" data-title="Institutional Funding — Programs, Not One-Off Configurations" aria-hidden="true">
-        <header class="slide-header"><span class="slide-number">06</span><div><h2>Institutional Funding — Programs, Not One-Off Configurations</h2><p>Each relationship needs its own commercial rules, operating model and integration scope.</p></div><span class="slide-context">Interactive view</span></header>
-        <nav class="subnav subnav--logos" role="tablist" aria-label="Institutional funding relationships">
-          <button class="is-active" type="button" role="tab" aria-selected="true" data-tab="fund-sme"><img src="assets/logos/sme-bank.svg" alt="SME Bank"></button>
-          <button type="button" role="tab" aria-selected="false" data-tab="fund-sdb" tabindex="-1"><img src="assets/logos/sdb.svg" alt="Social Development Bank"></button>
-          <button type="button" role="tab" aria-selected="false" data-tab="fund-international" tabindex="-1"><span>International funders</span></button>
-        </nav>
-        <div class="subpanels funding-panels">
-          <section class="subpanel is-active" data-panel="fund-sme" role="tabpanel">
-            <div class="funding-brand"><img src="assets/logos/sme-bank.svg" alt="SME Bank"><div><span>MODEL</span><h3>Agency financing</h3><p>SME Bank provides the funds; Manafa originates and operates financing under agreed program rules.</p></div></div>
-            <div class="funding-operating"><article><b>1</b><span>Program eligibility</span></article><i>→</i><article><b>2</b><span>Borrower and opportunity APIs</span></article><i>→</i><article><b>3</b><span>Offer and status exchange</span></article><i>→</i><article><b>4</b><span>Disbursement and reporting</span></article></div>
-            <p class="funding-question"><strong>Open:</strong> priority, target operating workflow and integration sequence.</p>
-          </section>
-          <section class="subpanel" data-panel="fund-sdb" role="tabpanel" hidden>
-            <div class="funding-brand"><img src="assets/logos/sdb.svg" alt="Social Development Bank"><div><span>MODEL</span><h3>Development funding program</h3><p>Represent the relationship as a distinct program with its own mandate and portfolio rules.</p></div></div>
-            <div class="funding-operating"><article><b>1</b><span>Mandate and target segment</span></article><i>→</i><article><b>2</b><span>Eligibility and pricing</span></article><i>→</i><article><b>3</b><span>Portfolio allocation</span></article><i>→</i><article><b>4</b><span>Settlement and reporting</span></article></div>
-            <p class="funding-question"><strong>Open:</strong> contract structure, mandate and operating responsibilities.</p>
-          </section>
-          <section class="subpanel" data-panel="fund-international" role="tabpanel" hidden>
-            <div class="funding-brand funding-brand--text"><span class="globe">◎</span><div><span>MODEL</span><h3>Relationship-specific funding structures</h3><p>No bank logos are shown here until individual relationships and scope are confirmed.</p></div></div>
-            <div class="funding-operating"><article><b>1</b><span>Funding structure</span></article><i>→</i><article><b>2</b><span>Program configuration</span></article><i>→</i><article><b>3</b><span>Funds-in / supplier payment</span></article><i>→</i><article><b>4</b><span>Fees, settlement and reporting</span></article></div>
-            <p class="funding-question"><strong>Open:</strong> relationship priority and which requirements should become reusable platform capability.</p>
-          </section>
+        <header class="slide-header"><span class="slide-number">06</span><div><h2>Institutional Funding Is Managed as Separate Programs</h2><p>Each relationship keeps its own mandate and commercial rules while using a reusable operating flow.</p></div><span class="slide-context">Portfolio view</span></header>
+        <div class="funding-portfolio">
+          <section><div class="funding-logo"><img src="assets/logos/sme-bank.svg" alt="SME Bank"></div><h3>Agency financing</h3><p>SME Bank provides funds; Manafa originates and operates financing under agreed program rules.</p><strong>Open</strong><span>Priority, workflow and integration sequence.</span></section>
+          <section><div class="funding-logo"><img src="assets/logos/sdb.svg" alt="Social Development Bank"></div><h3>Development funding program</h3><p>A distinct program with its own mandate, target segment and portfolio rules.</p><strong>Open</strong><span>Contract structure, mandate and operating responsibilities.</span></section>
+          <section><div class="funding-logo funding-logo--text"><i>◎</i><b>International funders</b></div><h3>Relationship-specific structures</h3><p>Funding structures remain separate until each relationship and scope is confirmed.</p><strong>Open</strong><span>Relationship priority and reusable platform requirements.</span></section>
         </div>
+        <div class="funding-common"><strong>Reusable operating flow</strong><span>1 · Program eligibility</span><i>→</i><span>2 · Borrower and opportunity</span><i>→</i><span>3 · Offer and status</span><i>→</i><span>4 · Disbursement and reporting</span></div>
         <footer class="slide-footer"><img src="assets/manafa-logo.svg" alt="Manafa"><span>Source · Funders Management Phase 2 · SME Bank API Integration scope</span></footer>
       </section>
 
@@ -250,6 +208,6 @@
     <button id="print" type="button" aria-label="Print presentation"><svg viewBox="0 0 24 24"><path d="M6 9V3h12v6M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2M6 14h12v7H6z"/></svg></button>
   </nav>
   <div class="overview-panel" id="overview-panel" aria-hidden="true"><header><div><img src="assets/manafa-logo.svg" alt="Manafa"><h2>Slide overview</h2></div><button id="close-overview" type="button">Close</button></header><div id="overview-grid"></div></div>
-  <script src="deck.js?v=20260804-2"></script>
+  <script src="deck.js?v=20260804-3"></script>
 </body>
 </html>

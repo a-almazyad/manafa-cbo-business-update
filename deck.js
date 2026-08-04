@@ -30,7 +30,7 @@
     grid.appendChild(item);
   });
 
-  document.querySelectorAll('.subnav, .partner-nav').forEach(tablist => {
+  document.querySelectorAll('.partner-nav').forEach(tablist => {
     const buttons = [...tablist.querySelectorAll('[data-tab]')];
     const slide = tablist.closest('.slide');
     const activate = (button, focus = false) => {
@@ -75,7 +75,7 @@
   addEventListener('hashchange', () => { current = Math.min(slides.length - 1, Math.max(0, Number((location.hash.match(/slide-(\d+)/) || [0, 1])[1]) - 1)); render(false); });
   addEventListener('keydown', event => {
     if (panel.classList.contains('is-open')) { if (event.key === 'Escape') document.getElementById('close-overview').click(); return; }
-    if (event.target instanceof Element && event.target.closest('.subnav, .partner-nav')) return;
+    if (event.target instanceof Element && event.target.closest('.partner-nav')) return;
     if (['ArrowRight', 'ArrowDown', 'PageDown', ' '].includes(event.key)) { event.preventDefault(); go(current + 1); }
     else if (['ArrowLeft', 'ArrowUp', 'PageUp'].includes(event.key)) { event.preventDefault(); go(current - 1); }
     else if (event.key === 'Home') go(0); else if (event.key === 'End') go(slides.length - 1);
