@@ -182,9 +182,9 @@ button{font:inherit}
 .closing h2{margin:8px 0 12px;font-size:98px;letter-spacing:-5px}
 .closing span{font-size:20px}
 .closing footer{display:flex;justify-content:space-between;padding-top:18px;border-top:1px solid #ffffff33;color:#aaa6b6;font-size:10px}
-.controls{position:fixed;left:22px;top:50%;z-index:20;display:flex;flex-direction:column;align-items:center;gap:4px;padding:9px 6px;color:#fff;background:#111018ee;border-radius:30px;transform:translateY(-50%)}
+.controls{position:fixed;right:18px;bottom:14px;z-index:20;display:flex;align-items:center;gap:5px;padding:6px 9px;color:#fff;background:#111018ee;border-radius:30px}
 .controls button{width:30px;height:30px;color:#fff;background:transparent;border:0;cursor:pointer}
-.controls span{min-width:38px;padding:5px 0;font-size:8px;text-align:center}
+.controls span{min-width:65px;font-size:9px;text-align:center}
 .overview{position:fixed;inset:0;z-index:50;display:none;padding:28px 40px;overflow:auto;background:#ecebef}
 .overview.open{display:block}
 .overview header{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px}
@@ -196,8 +196,7 @@ button{font:inherit}
 #overview-grid span{color:var(--violet);font-size:10px}
 #overview-grid strong{font-size:11px;line-height:1.4}
 @media(max-width:760px){.stage{padding:6px}
-.controls{right:7px;bottom:7px;left:auto;top:auto;flex-direction:row;padding:6px 9px;transform:none}
-.controls span{min-width:65px;padding:0;font-size:9px}
+.controls{right:7px;bottom:7px}
 }
 @media print{@page{size:16in 9in;margin:0}
 html,body{overflow:visible;background:#fff}
@@ -427,7 +426,7 @@ html,body{overflow:visible;background:#fff}
 .suite-ecosystem .ecosystem-row>label{align-self:stretch;display:flex;flex-direction:column;justify-content:center;padding:4px 8px;background:transparent}
 .suite-ecosystem .channel-row{grid-template-columns:122px repeat(4,1fr);border:1px solid #c8c5cd}
 .suite-ecosystem .hub-row{grid-template-columns:122px repeat(4,1fr);border:1px solid #c8c5cd}
-.suite-ecosystem .shared-row{grid-template-columns:122px repeat(3,1fr);border:1px solid #c8c5cd}
+.suite-ecosystem .shared-row{grid-template-columns:122px repeat(4,1fr);border:1px solid #c8c5cd}
 .suite-ecosystem .channel-row>span{min-height:56px}
 .suite-ecosystem .hub-row article{min-height:0}
 .suite-ecosystem .shared-row>span{min-height:54px}

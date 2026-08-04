@@ -1,6 +1,19 @@
 (() => {
-  const slides = [...document.querySelectorAll('.slide')];
   const canvas = document.querySelector('.slide-canvas');
+  const borrowerChapter = canvas.querySelector('.chapter[data-title="Borrower Channel"]');
+  const borrowerUpdate = canvas.querySelector('.content.borrower');
+  const firstLivePlatformSlide = canvas.querySelector('.content.live-platforms');
+  const creditChapter = canvas.querySelector('.chapter[data-title="Credit Engine"]');
+  const creditUpdate = canvas.querySelector('.content.credit');
+  const financingChapter = canvas.querySelector('.chapter[data-title="Financing Products"]');
+
+  // Executive flow: strategy → channel → platform implementation → credit → financing.
+  canvas.insertBefore(borrowerChapter, firstLivePlatformSlide);
+  canvas.insertBefore(borrowerUpdate, firstLivePlatformSlide);
+  canvas.insertBefore(creditChapter, financingChapter);
+  canvas.insertBefore(creditUpdate, financingChapter);
+
+  const slides = [...document.querySelectorAll('.slide')];
   const counter = document.querySelector('#counter');
   const panel = document.querySelector('#overview-panel');
   const grid = document.querySelector('#overview-grid');
