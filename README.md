@@ -1,6 +1,6 @@
-# Manafa Digital Business Portfolio Update
+# Manafa Digital Business — CPO Portfolio Review
 
-HTML presentation prepared for the CBO review on 4 August 2026.
+HTML presentation prepared for the CPO portfolio review on 5 August 2026.
 
 The deck follows Manafa's CTO weekly presentation system: 1440×810 slides, Alexandria type, flat black/white layouts, section-divider slides, varied visual compositions, and sourced product/partner assets.
 

@@ -24,6 +24,14 @@ button{font:inherit}
 .cover h1{margin:10px 0 22px;font-size:100px;line-height:.88;letter-spacing:-6px}
 .cover>div span{font-size:19px}
 .cover footer{padding-top:20px;border-top:1px solid #ffffff33}
+.agenda-list{display:grid;grid-auto-flow:column;grid-template-columns:1fr 1fr;grid-template-rows:repeat(4,1fr);column-gap:70px;flex:1;min-height:0;margin:36px 52px 22px}
+.agenda-list article{display:grid;grid-template-columns:62px 1fr;gap:18px;align-items:center;border-top:1px solid var(--line)}
+.agenda-list article:nth-child(4),.agenda-list article:nth-child(7){border-bottom:1px solid var(--line)}
+.agenda-list article>b{color:#c3c0ca;font-size:34px;letter-spacing:-1px}
+.agenda-list h3{margin:0 0 8px;font-size:22px;letter-spacing:-.4px}
+.agenda-list p{margin:0;color:var(--muted);font-size:11px;line-height:1.45}
+.agenda-focus{display:grid;grid-template-columns:180px 1fr;gap:24px;margin:0 52px;padding:16px 20px;color:#fff;background:var(--ink);font-size:11px}
+.agenda-focus span{color:#d7d4de}
 .chapter{padding:50px 68px 42px;flex-direction:column;color:#fff;background:var(--violet)}
 .chapter.teal{background:var(--teal)}
 .chapter.amber{background:#bd7f00}
