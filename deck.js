@@ -97,6 +97,126 @@
   document.querySelectorAll('.r61 nav button').forEach(button => button.onclick = () => showScope(button.dataset.scope));
   if (scopeView) showScope('admin');
 
+  const stageClass = value => {
+    const normalized = String(value || '').trim().toLowerCase();
+    if (!normalized || normalized === '—' || normalized === '-') return 'is-empty';
+    if (normalized.includes('done') || normalized.includes('live') || normalized.includes('completed')) return 'is-done';
+    if (normalized.includes('progress') || normalized.includes('partially') || normalized.includes('queue')) return 'is-progress';
+    if (normalized.includes('planned') || normalized.includes('pending') || normalized.includes('not started') || normalized.includes('to do') || normalized.includes('tbd') || normalized.includes('unspecified')) return 'is-planned';
+    return '';
+  };
+
+  const buildHubExplorers = () => {
+    const hubs = window.MANAFA_HUB_ROADMAPS || [];
+    document.querySelectorAll('.hub-explorer[data-hub-id]').forEach(explorer => {
+      const hub = hubs.find(item => item.id === explorer.dataset.hubId);
+      if (!hub) return;
+      const tabs = document.createElement('div');
+      const panels = document.createElement('div');
+      const tabButtons = [];
+      const productPanels = [];
+      tabs.className = 'hub-tabs';
+      tabs.setAttribute('role', 'tablist');
+      tabs.setAttribute('aria-label', `${hub.title} products`);
+      panels.className = 'hub-panels';
+
+      const activate = (index, focus = false) => {
+        tabButtons.forEach((button, buttonIndex) => {
+          const active = buttonIndex === index;
+          button.classList.toggle('is-active', active);
+          button.setAttribute('aria-selected', String(active));
+          button.tabIndex = active ? 0 : -1;
+          productPanels[buttonIndex].hidden = !active;
+        });
+        if (focus) tabButtons[index].focus();
+      };
+
+      hub.products.forEach((product, index) => {
+        const button = document.createElement('button');
+        const panel = document.createElement('section');
+        button.type = 'button';
+        button.className = 'hub-tab';
+        button.textContent = product.label;
+        button.setAttribute('role', 'tab');
+        button.onclick = () => activate(index);
+        button.onkeydown = event => {
+          let next = index;
+          if (event.key === 'ArrowRight') next = (index + 1) % hub.products.length;
+          else if (event.key === 'ArrowLeft') next = (index - 1 + hub.products.length) % hub.products.length;
+          else if (event.key === 'Home') next = 0;
+          else if (event.key === 'End') next = hub.products.length - 1;
+          else return;
+          event.preventDefault();
+          event.stopPropagation();
+          activate(next, true);
+        };
+
+        panel.className = 'hub-panel';
+        panel.hidden = index !== 0;
+        const meta = document.createElement('div');
+        meta.className = 'hub-product-meta';
+        meta.innerHTML = `<div><h3>${product.title}</h3><p>Owner · ${product.owner}   |   Source updated · ${product.updated}</p></div><a href="${product.source}" target="_blank" rel="noreferrer">Open source</a>`;
+        panel.append(meta);
+
+        if (product.note) {
+          const note = document.createElement('p');
+          note.className = 'hub-source-note';
+          note.textContent = product.note;
+          panel.append(note);
+        }
+
+        if (!product.rows.length) {
+          const empty = document.createElement('div');
+          empty.className = 'hub-empty-state';
+          empty.innerHTML = '<strong>No defined delivery rows</strong><span>The source strategy or roadmap does not contain committed stage dates.</span>';
+          panel.append(empty);
+        } else {
+          const scroll = document.createElement('div');
+          const table = document.createElement('table');
+          const thead = document.createElement('thead');
+          const tbody = document.createElement('tbody');
+          const headers = ['Component / sub-feature', 'Overall', 'Scope', 'Design', 'Requirements', 'Delivery'];
+          const headRow = document.createElement('tr');
+          scroll.className = 'hub-table-scroll';
+          scroll.tabIndex = 0;
+          table.className = 'hub-delivery-table';
+          headers.forEach(label => { const th = document.createElement('th'); th.textContent = label; headRow.append(th); });
+          thead.append(headRow);
+          product.rows.forEach(roadmapRow => {
+            const tr = document.createElement('tr');
+            if (roadmapRow.phase) {
+              tr.className = 'hub-phase-row';
+              const th = document.createElement('th');
+              th.colSpan = headers.length;
+              th.textContent = roadmapRow.phase;
+              tr.append(th);
+            } else {
+              const initiative = document.createElement('th');
+              initiative.innerHTML = `<strong>${roadmapRow.item}</strong><small>${roadmapRow.detail}</small>`;
+              tr.append(initiative);
+              [roadmapRow.overall, roadmapRow.scope, roadmapRow.ux, roadmapRow.requirements, roadmapRow.tech].forEach(value => {
+                const td = document.createElement('td');
+                td.innerHTML = `<span class="hub-stage ${stageClass(value)}">${value || '—'}</span>`;
+                tr.append(td);
+              });
+            }
+            tbody.append(tr);
+          });
+          table.append(thead, tbody);
+          scroll.append(table);
+          panel.append(scroll);
+        }
+        tabs.append(button);
+        panels.append(panel);
+        tabButtons.push(button);
+        productPanels.push(panel);
+      });
+      explorer.append(tabs, panels);
+      activate(0);
+    });
+  };
+  buildHubExplorers();
+
   addEventListener('resize', fit);
   addEventListener('hashchange', () => {
     current = Math.max(0, Math.min(slides.length - 1, +(location.hash.match(/slide-(\d+)/) || [, 1])[1] - 1));

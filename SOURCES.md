@@ -16,6 +16,13 @@ The presentation consolidates internal material current to 4 August 2026:
 - Funder Management Product Roadmap 2026
 - Funder Channel Product Roadmap 2026
 - Embedded Financing Roadmap and Partnerships Tracking
+- Borrower Channel and Buyer Channel Product Roadmaps
+- Buyer Management and SCF FinOps Product Roadmaps
+- CRM and Client Lifecycle Product Roadmaps
+- LOS, LMS and Collections Product Roadmaps
+- Invoice Management Systems Product Roadmap
+
+The appendix normalizes source columns to `Scope`, `Design`, `Requirements`, and `Delivery`. Blank, pending, or TBD values are retained as uncommitted; no dates were inferred.
 
 Official public brand assets used in the deck:
 
