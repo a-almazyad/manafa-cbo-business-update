@@ -18,7 +18,7 @@ The presentation consolidates internal material current to 4 August 2026:
 
 Official public brand assets used in the deck:
 
-- Mudad: `https://mudad.com.sa/assets/favicons/icon.svg`
+- Mudad official wordmark: `https://mudad.com.sa/assets/images/Mudad_logo.png`
 - SME Bank: `https://smebank.gov.sa/images/logo.svg`
 - Social Development Bank: official website logo asset
 
