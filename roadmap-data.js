@@ -356,6 +356,12 @@
         source: 'https://manafaco.atlassian.net/wiki/spaces/PTS/pages/4333600819/Manafa+Business+Suite+Strategy',
         note: 'The capability is shown in the target product structure; a delivery roadmap was not found in Product Team Spaces.', rows: [],
       },
+      {
+        id: 'erp-middleware', label: 'ERP Middleware', title: 'ERP Middleware',
+        owner: 'Not assigned in source', updated: 'No roadmap page found',
+        source: 'https://manafaco.atlassian.net/wiki/spaces/PTS/pages/4333600819/Manafa+Business+Suite+Strategy',
+        note: 'The capability is shown in the target product structure; a delivery roadmap was not found in Product Team Spaces.', rows: [],
+      },
     ],
   });
 })();
