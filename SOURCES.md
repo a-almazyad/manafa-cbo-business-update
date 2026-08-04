@@ -5,7 +5,8 @@ The presentation consolidates internal material current to 4 August 2026:
 - Manafa CTO Weekly, 3 August 2026
 - SCF Digital Products Weekly, 2 August 2026
 - Manafa Product Suite Strategy Showcase v2.2
-- Release 60 Deployment Notes and Digital Factory product roadmaps
+- Jira Digital Factory: `fixVersion = "Manafa Release 60" AND status = "Production Live"`, checked 4 August 2026
+- R61 Digital Business scope from SCF Digital Products Weekly: 33 initiatives across Admin, SCF, CRM and Borrower workstreams
 - Borrower Journey Revamp V2 roadmap
 - Borrower Company User Management and Authorization manual
 - CapEx Product Roadmap, updated 28 July 2026

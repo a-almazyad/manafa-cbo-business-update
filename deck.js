@@ -1,1 +1,119 @@
-(()=>{const slides=[...document.querySelectorAll('.slide')],canvas=document.querySelector('.slide-canvas'),counter=document.querySelector('#counter'),panel=document.querySelector('#overview-panel'),grid=document.querySelector('#overview-grid');let current=Math.max(0,Math.min(slides.length-1,+(location.hash.match(/slide-(\d+)/)||[,1])[1]-1));const fit=()=>canvas.style.setProperty('--scale',Math.min((innerWidth-36)/1440,(innerHeight-36)/810,1.4));const render=(hash=true)=>{slides.forEach((s,i)=>{s.classList.toggle('is-active',i===current);s.setAttribute('aria-hidden',i!==current)});counter.textContent=`${current+1} / ${slides.length}`;document.title=`${slides[current].dataset.title} — Manafa`;if(hash)history.replaceState(null,'',`#slide-${current+1}`);[...grid.children].forEach((x,i)=>x.classList.toggle('current',i===current))};const go=i=>{current=Math.max(0,Math.min(slides.length-1,i));render()};slides.forEach((s,i)=>{const b=document.createElement('button');b.innerHTML=`<span>${String(i+1).padStart(2,'0')}</span><strong>${s.dataset.title}</strong>`;b.onclick=()=>{panel.classList.remove('open');go(i)};grid.append(b)});document.querySelector('#prev').onclick=()=>go(current-1);document.querySelector('#next').onclick=()=>go(current+1);document.querySelector('#overview').onclick=()=>panel.classList.add('open');document.querySelector('#close-overview').onclick=()=>panel.classList.remove('open');document.querySelector('#fullscreen').onclick=()=>document.fullscreenElement?document.exitFullscreen():document.documentElement.requestFullscreen();const scope={admin:{kicker:'ADMIN',title:'Operational control and release support',summary:'R60 strengthened the operational foundation needed to run borrower, financing and platform workflows.',items:[['Access and permissions','Role and access changes supporting the new product structure.'],['Operational support','Admin workflow fixes and release readiness across digital products.'],['User-management foundation','Visibility and support for borrower-company authorization structures.']],outcome:'More reliable back-office control while capabilities move into focused platforms.'},scf:{kicker:'SCF',title:'SCF FinOps — first focused-platform baseline',summary:'R60 established the first usable SCF FinOps product surface outside the legacy Admin experience.',items:[['Supplier workspace','Supplier list and supplier details.'],['Offer operations','Offer details and offer attempts.'],['Financing visibility','Instrument and financing information for the operating team.']],outcome:'A focused operational product that can now expand into onboarding, reconciliation and collections.'},crm:{kicker:'CRM',title:'Customer pipeline foundation',summary:'R60 progressed the CRM product as the owned home for commercial and customer-relationship workflows.',items:[['Lead workflow','A structured lead-management baseline.'],['Pipeline visibility','Clearer ownership and movement through the commercial pipeline.'],['Platform readiness','Foundation for Target and Performance Management.']],outcome:'Commercial workflows move out of scattered Admin features and into the Customer Hub.'},borrower:{kicker:'BORROWER',title:'Borrower journey and visibility foundations',summary:'R60 advanced the work required to make the activation and financing journey complete across channels and operations.',items:[['Journey foundations','Identification, routing and profile-completion work.'],['Admin visibility','Operational visibility into borrower progress and documents.'],['Channel continuity','Foundations for consistent web and mobile delivery.']],outcome:'The release moves the business toward one complete activation launch—not separate borrower phases.'}};const view=document.querySelector('#scope-view');const show=k=>{const d=scope[k];view.innerHTML=`<header><small>${d.kicker}</small><h3>${d.title}</h3><p>${d.summary}</p></header><div>${d.items.map((x,i)=>`<article><b>0${i+1}</b><h4>${x[0]}</h4><p>${x[1]}</p></article>`).join('')}</div><footer><b>BUSINESS OUTCOME</b><span>${d.outcome}</span></footer>`;document.querySelectorAll('.release nav button').forEach(b=>b.classList.toggle('active',b.dataset.scope===k))};document.querySelectorAll('.release nav button').forEach(b=>b.onclick=()=>show(b.dataset.scope));show('admin');addEventListener('resize',fit);addEventListener('hashchange',()=>{current=Math.max(0,Math.min(slides.length-1,+(location.hash.match(/slide-(\d+)/)||[,1])[1]-1));render(false)});addEventListener('keydown',e=>{if(panel.classList.contains('open')){if(e.key==='Escape')panel.classList.remove('open');return}if(['ArrowRight','ArrowDown','PageDown',' '].includes(e.key)){e.preventDefault();go(current+1)}else if(['ArrowLeft','ArrowUp','PageUp'].includes(e.key)){e.preventDefault();go(current-1)}else if(e.key==='Home')go(0);else if(e.key==='End')go(slides.length-1);else if(e.key.toLowerCase()==='o')panel.classList.add('open')});fit();render()})();
+(() => {
+  const slides = [...document.querySelectorAll('.slide')];
+  const canvas = document.querySelector('.slide-canvas');
+  const counter = document.querySelector('#counter');
+  const panel = document.querySelector('#overview-panel');
+  const grid = document.querySelector('#overview-grid');
+  let current = Math.max(0, Math.min(slides.length - 1, +(location.hash.match(/slide-(\d+)/) || [, 1])[1] - 1));
+
+  const fit = () => canvas.style.setProperty('--scale', Math.min((innerWidth - 36) / 1440, (innerHeight - 36) / 810, 1.4));
+  const render = (hash = true) => {
+    slides.forEach((slide, index) => {
+      slide.classList.toggle('is-active', index === current);
+      slide.setAttribute('aria-hidden', index !== current);
+    });
+    counter.textContent = `${current + 1} / ${slides.length}`;
+    document.title = `${slides[current].dataset.title} — Manafa`;
+    if (hash) history.replaceState(null, '', `#slide-${current + 1}`);
+    [...grid.children].forEach((item, index) => item.classList.toggle('current', index === current));
+  };
+  const go = index => { current = Math.max(0, Math.min(slides.length - 1, index)); render(); };
+
+  slides.forEach((slide, index) => {
+    const button = document.createElement('button');
+    button.innerHTML = `<span>${String(index + 1).padStart(2, '0')}</span><strong>${slide.dataset.title}</strong>`;
+    button.onclick = () => { panel.classList.remove('open'); go(index); };
+    grid.append(button);
+  });
+
+  document.querySelector('#prev').onclick = () => go(current - 1);
+  document.querySelector('#next').onclick = () => go(current + 1);
+  document.querySelector('#overview').onclick = () => panel.classList.add('open');
+  document.querySelector('#close-overview').onclick = () => panel.classList.remove('open');
+  document.querySelector('#fullscreen').onclick = () => document.fullscreenElement ? document.exitFullscreen() : document.documentElement.requestFullscreen();
+
+  const r61 = {
+    admin: {
+      label: 'ADMIN',
+      items: [
+        ['DF-4049', 'Storybook setup for internal design system'],
+        ['DF-3908', 'Oracle SSO permission automation'],
+        ['DF-4215', 'PM Board filter enhancement'],
+        ['DF-4113', 'Automate facility creation from offer acceptance'],
+        ['DF-4144', 'Revamp Admin header for new design system'],
+        ['DF-4188', 'Invoice payer column and filter'],
+        ['DF-4184', 'Design system component fixes'],
+        ['DF-4174', 'Create manual financial offer']
+      ]
+    },
+    crm: {
+      label: 'CRM',
+      items: [
+        ['DF-3718', 'Lead Management in Sales CRM'],
+        ['DF-4182', 'Reactivate eligible financed companies'],
+        ['DF-4114', 'Onboarding V2 CRM impacts'],
+        ['DF-4160', 'CRM Enhancements Part 6']
+      ]
+    },
+    borrower: {
+      label: 'BORROWER',
+      items: [
+        ['DF-3357', 'Borrower Activation Journey V2'],
+        ['DF-4121', 'Borrower User Management Phase II'],
+        ['DF-4102', 'Add more Borrower task types'],
+        ['DF-4198', 'User Management post-launch enhancements'],
+        ['DF-4011', 'Request Clearance Letter']
+      ]
+    },
+    scf: {
+      label: 'SCF',
+      items: [
+        ['DF-3957', 'Direct-to-Supplier Funding Model V1.0'],
+        ['DF-4136', 'BNPP end-of-month fees reconciliation'],
+        ['DF-4148', 'SAB financing requests timeline'],
+        ['DF-4135', 'SAB Thursday timing enhancement'],
+        ['DF-4194', 'Fees Management goal-seeking fixes'],
+        ['DF-4091', 'Buyer maturity report enhancement'],
+        ['DF-3832', 'SMBC Integration Manager — email'],
+        ['DF-4021', 'SIC SCF onboarding requirements'],
+        ['DF-3486', 'Auto-send supplier outreach report'],
+        ['DF-4164', 'Merged SCF offer view permission'],
+        ['DF-3492', 'AML fetch for companies and owners'],
+        ['DF-3928', 'Buyer Profile Phase III'],
+        ['DF-3936', 'J.P. Morgan financing calculation'],
+        ['EMQ-5668', 'Admin AML issues to be fixed'],
+        ['DF-4192', 'Supplier banking and payout accounts'],
+        ['DF-3714', 'Standard Chartered B2B API Manager']
+      ]
+    }
+  };
+
+  const scopeView = document.querySelector('#scope-view');
+  const showScope = key => {
+    const data = r61[key];
+    scopeView.innerHTML = `<header><h3>${data.label} Sprint</h3><small>${data.items.length} scoped initiatives</small></header><div>${data.items.map(item => `<article><b>${item[0]}</b><h4>${item[1]}</h4></article>`).join('')}</div>`;
+    document.querySelectorAll('.r61 nav button').forEach(button => button.classList.toggle('active', button.dataset.scope === key));
+  };
+  document.querySelectorAll('.r61 nav button').forEach(button => button.onclick = () => showScope(button.dataset.scope));
+  if (scopeView) showScope('admin');
+
+  addEventListener('resize', fit);
+  addEventListener('hashchange', () => {
+    current = Math.max(0, Math.min(slides.length - 1, +(location.hash.match(/slide-(\d+)/) || [, 1])[1] - 1));
+    render(false);
+  });
+  addEventListener('keydown', event => {
+    if (panel.classList.contains('open')) {
+      if (event.key === 'Escape') panel.classList.remove('open');
+      return;
+    }
+    if (['ArrowRight', 'ArrowDown', 'PageDown', ' '].includes(event.key)) { event.preventDefault(); go(current + 1); }
+    else if (['ArrowLeft', 'ArrowUp', 'PageUp'].includes(event.key)) { event.preventDefault(); go(current - 1); }
+    else if (event.key === 'Home') go(0);
+    else if (event.key === 'End') go(slides.length - 1);
+    else if (event.key.toLowerCase() === 'o') panel.classList.add('open');
+  });
+
+  fit();
+  render();
+})();
