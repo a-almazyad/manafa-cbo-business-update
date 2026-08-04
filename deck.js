@@ -175,7 +175,7 @@
           const table = document.createElement('table');
           const thead = document.createElement('thead');
           const tbody = document.createElement('tbody');
-          const headers = ['Component / sub-feature', 'Overall', 'Scope', 'Design', 'Requirements', 'Delivery'];
+          const headers = ['Component', 'Sub-item', 'Status', 'Scope / Analysis', 'User Experience', 'Requirement Documentation', 'Tech Delivery'];
           const headRow = document.createElement('tr');
           scroll.className = 'hub-table-scroll';
           scroll.tabIndex = 0;
@@ -191,9 +191,11 @@
               th.textContent = roadmapRow.phase;
               tr.append(th);
             } else {
-              const initiative = document.createElement('th');
-              initiative.innerHTML = `<strong>${roadmapRow.item}</strong><small>${roadmapRow.detail}</small>`;
-              tr.append(initiative);
+              const component = document.createElement('th');
+              const subItem = document.createElement('td');
+              component.innerHTML = `<strong>${roadmapRow.item}</strong>`;
+              subItem.innerHTML = roadmapRow.detail ? `<span class="hub-subitem">${roadmapRow.detail}</span>` : '<span class="hub-subitem hub-subitem--empty">—</span>';
+              tr.append(component, subItem);
               [roadmapRow.overall, roadmapRow.scope, roadmapRow.ux, roadmapRow.requirements, roadmapRow.tech].forEach(value => {
                 const td = document.createElement('td');
                 td.innerHTML = `<span class="hub-stage ${stageClass(value)}">${value || '—'}</span>`;
