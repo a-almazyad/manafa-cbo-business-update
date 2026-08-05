@@ -430,3 +430,29 @@ html,body{overflow:visible;background:#fff}
 .suite-ecosystem .channel-row>span{min-height:56px}
 .suite-ecosystem .hub-row article{min-height:0}
 .suite-ecosystem .shared-row>span{min-height:54px}
+
+/* CTO Weekly source slide — internal-demand and production-issue widget */
+.demand-widget-slide{--ink:#090814;--violet:#5635d8;--teal:#07968c;--coral:#ef5c5c;--muted:#656876;--line:#dfe0e7;flex-direction:column;padding:38px 58px 26px;background:#fff}
+.demand-widget-slide::before{position:absolute;inset:0 auto 0 0;width:5px;background:var(--teal);content:""}
+.demand-widget-slide>.slide-header{z-index:2;display:grid;grid-template-columns:44px minmax(0,1fr) auto;gap:16px;align-items:center;min-height:60px;padding:0 0 15px;border-bottom:1px solid #cfd0d8}
+.demand-widget-slide>.slide-header h2{margin:0;font-size:36px;font-weight:700;letter-spacing:-1.3px;line-height:1.05}
+.demand-widget-slide .slide-number{display:grid;place-items:center;width:38px;height:38px;color:#fff;background:var(--teal);border-radius:50%;font-size:12px;font-weight:800}
+.demand-widget-slide .slide-context{color:var(--muted);font-size:11px;font-weight:700;letter-spacing:.07em;text-transform:uppercase}
+.widget-steps{display:grid;flex:0 0 520px;grid-template-columns:repeat(3,minmax(0,1fr));min-height:0;margin:20px 0 0;overflow:hidden;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.widget-step{display:flex;flex-direction:column;min-width:0;min-height:0;padding:18px 25px 17px;overflow:hidden;border-right:1px solid var(--line)}
+.widget-step:last-child{border-right:0}
+.widget-step>header{display:grid;grid-template-columns:42px minmax(0,1fr);gap:12px;align-items:center;min-height:55px;padding-bottom:14px}
+.widget-step>header>span{color:var(--violet);font-size:27px;font-weight:800;letter-spacing:-1px}
+.widget-step small{color:var(--violet);font-size:7.5px;font-weight:850;letter-spacing:.07em;text-transform:uppercase}
+.widget-step h3{margin:4px 0 0;font-size:16px;letter-spacing:-.35px}
+.widget-step figure{flex:1;min-height:0;margin:0;overflow:hidden;background:#fff;border:1px solid #d8dbe4}
+.widget-step figure img{width:100%;height:100%;object-fit:contain;object-position:top center}
+.widget-routing{z-index:2;display:grid;flex:0 0 70px;grid-template-columns:repeat(2,minmax(0,1fr));margin:12px 0 14px;background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.widget-routing section{display:grid;grid-template-columns:112px minmax(0,1fr);grid-template-rows:auto auto;gap:3px 18px;align-content:center;min-width:0;padding:10px 24px;border-right:1px solid var(--line)}
+.widget-routing section:last-child{border-right:0}
+.widget-routing small{grid-row:1/span 2;align-self:center;color:var(--violet);font-size:8px;font-weight:850;letter-spacing:.06em;text-transform:uppercase}
+.widget-routing section:last-child small{color:var(--coral)}
+.widget-routing strong{font-size:12px}
+.widget-routing span{color:var(--muted);font-size:9px}
+.demand-widget-slide>.slide-footer{position:static;z-index:2;display:flex;flex:0 0 26px;align-items:flex-end;justify-content:space-between;height:26px;margin-top:auto;padding-top:7px;color:var(--muted);border-top:1px solid var(--line);font-size:9px;font-weight:600;letter-spacing:.03em}
+.demand-widget-slide>.slide-footer img{width:68px;height:15px;object-fit:contain;object-position:left center}
