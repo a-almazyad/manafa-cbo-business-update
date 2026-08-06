@@ -19,7 +19,15 @@
   const grid = document.querySelector('#overview-grid');
   let current = Math.max(0, Math.min(slides.length - 1, +(location.hash.match(/slide-(\d+)/) || [, 1])[1] - 1));
 
-  const fit = () => canvas.style.setProperty('--scale', Math.min((innerWidth - 36) / 1440, (innerHeight - 36) / 810, 1.4));
+  const fit = () => {
+    const viewportWidth = window.visualViewport?.width || innerWidth;
+    const viewportHeight = window.visualViewport?.height || innerHeight;
+    const gutter = viewportWidth <= 760 ? 12 : 36;
+    const compactLandscape = viewportWidth > viewportHeight && viewportHeight <= 500;
+    const verticalGutter = compactLandscape ? 72 : gutter;
+    canvas.style.setProperty('--scale', Math.min((viewportWidth - gutter) / 1440, (viewportHeight - verticalGutter) / 810, 1.4));
+    canvas.style.setProperty('--stage-y', compactLandscape ? '46%' : '50%');
+  };
   const render = (hash = true) => {
     slides.forEach((slide, index) => {
       slide.classList.toggle('is-active', index === current);
@@ -43,7 +51,25 @@
   document.querySelector('#next').onclick = () => go(current + 1);
   document.querySelector('#overview').onclick = () => panel.classList.add('open');
   document.querySelector('#close-overview').onclick = () => panel.classList.remove('open');
-  document.querySelector('#fullscreen').onclick = () => document.fullscreenElement ? document.exitFullscreen() : document.documentElement.requestFullscreen();
+  document.querySelector('#fullscreen').onclick = () => {
+    if (document.fullscreenElement && document.exitFullscreen) document.exitFullscreen();
+    else if (document.documentElement.requestFullscreen) document.documentElement.requestFullscreen();
+  };
+
+  let swipeStart = null;
+  canvas.addEventListener('pointerdown', event => {
+    if (event.target.closest('button, a, .hub-table-scroll')) return;
+    swipeStart = { x: event.clientX, y: event.clientY, id: event.pointerId };
+  });
+  canvas.addEventListener('pointerup', event => {
+    if (!swipeStart || event.pointerId !== swipeStart.id) return;
+    const deltaX = event.clientX - swipeStart.x;
+    const deltaY = event.clientY - swipeStart.y;
+    swipeStart = null;
+    if (Math.abs(deltaX) < 48 || Math.abs(deltaX) < Math.abs(deltaY) * 1.25) return;
+    go(current + (deltaX < 0 ? 1 : -1));
+  });
+  canvas.addEventListener('pointercancel', () => { swipeStart = null; });
 
   const r61 = {
     admin: {
@@ -233,6 +259,7 @@
   buildHubExplorers();
 
   addEventListener('resize', fit);
+  window.visualViewport?.addEventListener('resize', fit);
   addEventListener('hashchange', () => {
     current = Math.max(0, Math.min(slides.length - 1, +(location.hash.match(/slide-(\d+)/) || [, 1])[1] - 1));
     render(false);
